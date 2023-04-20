@@ -1,0 +1,221 @@
+---
+title: "Reproducible Analytical Pipeline"
+author: "Authors: Joseph Crispell & Nathan Begbie, ONS Data Science Campus. <br />Abbreviated and Sheffield slide added by Laurie Platt, SCC."
+date: "`r format(Sys.Date(), '%d %b %Y')`"
+output: 
+  ioslides_presentation:
+    logo: images/logos/DataScienceCampus_logo_square.png
+    widescreen: true
+    css: css/custom.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<!-- Extra custom code to add "OFFICIAL" into the header -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<style>
+  header:after {
+    content: attr(label);
+    font-size: 12pt;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    line-height: 1.9;
+  }
+</style>
+
+<!-- END custom code block for header -->
+
+<!-- Extra custom code for footnotes - taken from https://stackoverflow.com/questions/42690955/how-to-insert-footnotes-in-ioslides-presentations-using-rmarkdown -->
+
+<!-- PRESENTER NOTES
+To view notes press "p" during the presentation on each slides with notes and an element with notes inside will appear. 
+
+Note that you can use presenter mode by adding "presentme=true" to presentation url ("my-presentation.html?presentme=true"). Turn off presenter mode by adding "?presentme=false" to the url.
+
+More information on "ioslides" available here: https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html.
+-->
+
+## What is an Analytical Pipeline?
+
+<p class="aligncenter">
+    <img src="images/TraditionalAnalysis-Reality.png" width="85%" height="auto" align="center">
+</p>
+
+<div class="notes">
+  An analytical pipeline can quickly become a complicated tangle of multiple file and data versions, programs, emails and final reports.
+</div>
+
+## What are the issues?
+
+<img src="images/TraditionalMess.png" width="50%" height="auto" align="right">
+
+<br>
+
+- Lots of manual steps
+- Hard to reproduce
+- Mistakes are easily made and hard to track
+- The steps aren't recorded
+- Using multiple independent tools
+- How do we keep track of which file versions people have?
+
+<div class="notes">
+  There are some key issues with this type of analytical pipeline:
+  
+  - Each step is manual and has to be completed in turn
+  - It is difficult to teach someone else to replicate the process
+  - Because each step is manual mistakes can be made
+  - The different steps involved are often note recorded nor is how they can change
+  - The pipeline combines multiple different programs
+  - There isn't a way of keeping track of changes to files and who made them
+</div>
+
+## What is a Reproducible Analytical Pipeline (RAP)?
+
+<a href="https://the-turing-way.netlify.com/introduction/introduction"> <img src="images/ReusablePipeline.png" width="65%" height="auto" align="right" alt="Source: The Turing Way"> </a>
+
+<br><br>
+
+- It is easily repeatable
+- It is easily extendable
+- It is automated
+- It minimises mistakes
+- It is fast
+- It builds trust
+
+<p class="footnote">
+  Image taken from: [The Turing Way](https://the-turing-way.netlify.com/introduction/introduction) book
+</p>
+
+<div class="notes">
+  This is where a reproducible analytical pipeline can help. It is:
+  
+  - Easy for you or others to replicate
+  - It can easily be adapted and improved and that process is recorded
+  - It is automated, all steps are completed but with only one click of a button
+  - Becuase it is automated, it minimises mistakes introduced by individual error, it is fast
+  - By being transparent about how the pipeline works, recording how it is built and maintains we build trust in our outputs
+</div>
+
+## What does a RAP look like?
+
+<img src="images/ReproducibleAnalyticalPipeline-R.png" width="90%" height="auto" align="center">
+
+<div class="notes">
+  A reproducible pipeline looks a bit like this.
+
+  It uses an open-source tool like R, to process, analyse and report a particular dataset.
+
+  The process is handled by a single program (R or python in these examples) and the pipeline's development and maintenance is overseen by a version control system like git.
+</div>
+
+## What are the benefits?
+
+<a href="https://the-turing-way.netlify.com/introduction/introduction"> <img src="images/ReusablePipeline.png" width="65%" height="auto" align="right" alt="Source: The Turing Way"> </a>
+
+<br>
+
+- Easy for others to use
+- Others can change and adapt
+- All steps are recorded
+  - Including whilst it is built
+- Automated and fast
+- Open and promotes trust
+
+<p class="footnote">
+  Image taken from: [The Turing Way](https://the-turing-way.netlify.com/introduction/introduction) book
+</p>
+
+<div class="notes">
+  A reproducible analytical pipeline is:
+  
+  - Easy to use, often with a single click of a button
+  - It can easily be adapted by you and others
+  - All steps for building and maintaining the pipeline are recorded
+  - It is automated, replicating hours or days of work in seconds
+  - Because everything is documented and open, people can see how we have created our outputs and replicate them for themselves - building trust
+</div>
+
+## What do we mean by reproducible?
+
+<a href="https://the-turing-way.netlify.com/introduction/introduction"> <img src="images/ReproducibleDefinitionGrid.jpg" width="60%" height="auto" align="right" alt="Source: The Turing Way"> </a>
+
+<br>
+
+We want to look back and be able to repeat our work easily and quickly.
+
+What are the benefits?
+
+- Helps build trust
+- Not reliant on single individual
+- Can be adapted and re-used
+
+<p class="footnote">
+  Image taken from: [The Turing Way](https://the-turing-way.netlify.com/introduction/introduction) book
+</p>
+
+<div class="notes">
+  So what does reproducible mean?
+  
+  We want to be able to repeat our work as easily, accurately and quickly as possible. If our outputs are be reproduced by us and others then people will trust in them.
+  
+  It means others can take repeat our work and adapt our tools to suit their needs.
+</div>
+
+## We don't have to do it all at once
+
+<br><br>
+<img src="images/BuildingBlock_rap.png" width="60%" height="auto" align="right">
+
+The building blocks of a RAP:
+
+- Version control
+- Using open-source tools
+- Create reproducible code
+
+<br>
+
+\... are useful in their own right, each will improve the auditability, speed and quality of your work.
+
+<div class="notes">
+  And you don't have to do it all at once, take your time and learn and apply each of the essential components in time.
+</div>
+
+## Sheffield City Council RAP 
+
+The Council's BI Team have used some of the RAP building blocks. PAS and the BI Team are now further investigating the potential of RAP: 
+
+- The Government’s Analysis Function and the NHS are fully committed to RAP, but how applicable is it to Local Government?  
+- Evidence of RAP benefits and costs?  
+- How could RAP evolve alongside current processes and tools?  
+- Planning the delivery of a series of short internal webinars on scripting, version control, and RAP.
+- Considering re-engineering a current pipeline as a RAP pilot.
+- Discussing a version control platform with IT. 
+
+[Further RAP resources](https://scc-pi.github.io/pinsheff/rap.html#further-resources-rap)
+
+[SCC RAP investigation Kanban](https://tasks.office.com/SCCExtranet.onmicrosoft.com/en-GB/Home/Planner/#/plantaskboard?groupId=419e0e76-20c4-4f27-80a0-d4f7407fad23&planId=0bfrf4LnQkGypEG3kErefJYAGNzz)
+
+<div class="notes">
+  Contacting the Data Science team at Hackney who have adopted RAP.  
+  
+  How does Power BI, for example, sit within RAP?  
+  
+  Is the quality of source data part of RAP?  
+</div>
+
+## Citing _The Turing Way_
+
+Many of the images used in this presentation were taken from [The Turing Way](https://the-turing-way.netlify.app/index.html) book.
+
+Full citation:
+
+*The Turing Way Community, Becky Arnold, Louise Bowler, Sarah Gibson, Patricia Herterich, Rosie Higman, … Kirstie Whitaker. (2019, March 25). The Turing Way: A Handbook for Reproducible Data Science (Version v0.0.4). Zenodo. http://doi.org/10.5281/zenodo.3233986*
+
+<div class="notes">
+  This is just a quick shout out the The Turing Way - I've used a few of their incredible images and this book is well worth a read!
+</div>
